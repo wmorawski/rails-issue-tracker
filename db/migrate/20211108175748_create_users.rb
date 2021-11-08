@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :avatar_url
 
       t.timestamps
+      t.index :email, name: "idx_user_email", unique: true
     end
   end
 end

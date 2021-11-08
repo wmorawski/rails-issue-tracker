@@ -4,6 +4,9 @@ class CreateIssues < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.datetime :due_date
+      t.references :author, index: true
+      t.references :assignee, index: true
+      t.references :issue_status, index: true, foreign_key: true
 
       t.timestamps
     end
