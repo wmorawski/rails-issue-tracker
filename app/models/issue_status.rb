@@ -1,0 +1,2 @@
+class IssueStatus < ApplicationRecord
+end
