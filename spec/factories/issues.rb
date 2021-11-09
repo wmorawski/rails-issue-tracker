@@ -14,8 +14,9 @@
 #
 FactoryBot.define do
   factory :issue do
-    sequence(:name) { |n| "Issue ##{n}" }
-    description { "Some description"}
+    sequence(:title) { |n| "Issue ##{n}" }
+    description { "Some description" }
     issue_status
+    association :author, factory: :user
   end
 end

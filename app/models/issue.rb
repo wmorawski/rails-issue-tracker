@@ -14,9 +14,8 @@
 #
 class Issue < ApplicationRecord
   validates :title, presence: true
-  validates :color, presence: true, format: { with: /#[a-fA-F0-9]{6}/, message: "only allows HEX colors" }
 
   belongs_to :author, class_name: "User"
-  belongs_to :assignee, class_name: "User"
+  belongs_to :assignee, class_name: "User", optional: true
   belongs_to :issue_status
 end

@@ -13,15 +13,25 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/issues", type: :request do
+  let!(:issue_status) { FactoryBot.create(:issue_status) }
+  let!(:author) { FactoryBot.create(:user) }
   # This should return the minimal set of attributes required to create a valid
   # Issue. As you add validations to Issue, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      title: "Some issue title",
+      description: "Some issue description",
+      issue_status: issue_status,
+      author: author
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      title: nil,
+      description: nil,
+    }
   }
 
   # This should return the minimal set of values that should be in the headers

@@ -11,7 +11,7 @@
 #
 class IssueStatus < ApplicationRecord
   validates :name, presence: true
-  validates :color, presence: true
+  validates :color, presence: true, format: { with: /\A#[a-fA-F0-9]{6}\z/, message: "only allows HEX colors" }
 
   has_many :issues, dependent: :destroy
 end

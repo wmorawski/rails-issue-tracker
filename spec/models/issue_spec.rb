@@ -15,5 +15,16 @@
 require 'rails_helper'
 
 RSpec.describe Issue, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#validations" do
+    it "has valid factory" do
+      issue = build :issue
+      expect(issue).to be_valid
+    end
+
+    it "validates presence of attributes" do
+      issue = build :issue, title: nil
+      expect(issue).not_to be_valid
+      expect(issue.errors.messages[:title]).to include("can't be blank")
+    end
+  end
 end

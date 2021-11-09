@@ -39,13 +39,14 @@ class IssuesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_issue
-      @issue = Issue.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def issue_params
-      params.require(:issue).permit(:title, :description, :due_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_issue
+    @issue = Issue.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def issue_params
+    params.require(:issue).permit(:title, :description, :due_date)
+  end
 end
