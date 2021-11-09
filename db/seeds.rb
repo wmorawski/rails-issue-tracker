@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+DEFAULT_STATUSES = ['new', 'in progress', 'review', 'qa', 'closed']
+
+DEFAULT_STATUSES.each do |status_name|
+  IssueStatus.find_or_create_by name: status_name do |issueStatus|
+    issueStatus.color = Faker::Color.hex_color
+  end
+end
