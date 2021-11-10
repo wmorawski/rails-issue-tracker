@@ -2,6 +2,7 @@
 #
 
 Rails.application.routes.draw do
+  devise_for :users
   resources :issues
   resources :issue_statuses
   resources :users

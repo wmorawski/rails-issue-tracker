@@ -18,4 +18,5 @@ class Issue < ApplicationRecord
   belongs_to :author, class_name: "User"
   belongs_to :assignee, class_name: "User", optional: true
   belongs_to :issue_status
+  accepts_nested_attributes_for :issue_status
 end
